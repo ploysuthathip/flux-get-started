@@ -1,0 +1,15 @@
+apiVersion: flux.weave.works/v1beta1
+kind: HelmRelease
+metadata:
+  name: nginx-ingress
+  namespace: demo
+  annotations:
+    flux.weave.works/automated: "true"
+    flux.weave.works/tag.chart-image: glob:1.4*
+spec:
+  releaseName: nginx-ingress
+  chart:
+    repository: stable
+    name: nginx-ingress
+    version: 1.27.2
+  values:
